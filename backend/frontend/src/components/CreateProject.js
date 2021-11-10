@@ -30,6 +30,7 @@ class CreateProject extends Component {
       description: this.state.description,
       language: this.state.language,
       sourcecode: this.state.sourcecode,
+      download: this.state.download,
       published_date: moment().format("DD/MM/YYYY"),
       status: "In development"
     };
@@ -44,7 +45,8 @@ class CreateProject extends Component {
           language: '',
           sourcecode: '',
           published_date: '',
-          status: ''
+          status: '',
+          download: ''
         })
         this.props.history.push('/projects');
       })
@@ -116,6 +118,17 @@ class CreateProject extends Component {
                     name='sourcecode'
                     className='form-control'
                     value={this.state.sourcecode}
+                    onChange={this.onChange}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='Download link'
+                    name='download'
+                    className='form-control'
+                    value={this.state.download}
                     onChange={this.onChange}
                   />
                 </div>
