@@ -24,17 +24,6 @@ class ShowProjectDetails extends Component {
       })
   };
 
-  onDeleteClick(id) {
-    axios
-      .delete('/api/projects/' + id)
-      .then(res => {
-        this.props.history.push("/projects");
-      })
-      .catch(err => {
-        console.log("Error form ShowProjectDetails_deleteClick");
-      })
-  };
-
   render() {
     const project = this.state.project;
     let ProjectItem = <div>

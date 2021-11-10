@@ -6,6 +6,9 @@ function Navbar() {
     <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
       <div className="collpase navbar-collapse">
         <ul className="navbar-nav mr-auto">
+          <li className="navbar-brand">
+            <Link to="/" className="nav-link">Šimon Borovský</Link>
+          </li>
           <li className="navbar-item">
             <Link to="/" className="nav-link">Home</Link>
           </li>
