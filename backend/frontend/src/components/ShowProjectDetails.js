@@ -13,7 +13,7 @@ class ShowProjectDetails extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:8082/api/projects/' + this.props.match.params.id)
+      .get('/api/projects/' + this.props.match.params.id)
       .then(res => {
         this.setState({
           project: res.data
@@ -26,7 +26,7 @@ class ShowProjectDetails extends Component {
 
   onDeleteClick(id) {
     axios
-      .delete('http://localhost:8082/api/projects/' + id)
+      .delete('/api/projects/' + id)
       .then(res => {
         this.props.history.push("/projects");
       })
