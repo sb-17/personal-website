@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import ProjectContainer from './ProjectContainer';
 
 class ShowProjectList extends Component {
@@ -14,7 +13,7 @@ class ShowProjectList extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:8082/api/projects')
+      .get('/api/projects')
       .then(res => {
         this.setState({
           projects: res.data

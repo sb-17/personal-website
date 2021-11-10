@@ -60,12 +60,6 @@ class CreateProject extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <br />
-              <Link to="/" className="btn btn-outline-warning float-left">
-                Show Project List
-              </Link>
-            </div>
-            <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Add Project</h1>
               <p className="lead text-center">
                 Create new project

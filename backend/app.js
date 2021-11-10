@@ -1,5 +1,6 @@
 const express = require('express');
 var cors = require('cors');
+const path = require('path');
 
 const mongoose = require('mongoose');
 const dotenv = require("dotenv");
@@ -22,11 +23,24 @@ mongoose.connect(
   }
 );
 
+app.use('/api/projects', projects);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend', 'build', 'index.html'));
+  });
+}
+else {
+  app.get('/', (req, res) => {
+    res.send("development");
+  });
+}
+
 app.use(cors({ origin: true, credentials: true }));
 
 app.use(express.json({ extended: false }));
-
-app.use('/api/projects', projects);
 
 const port = process.env.PORT || 8082;
 
