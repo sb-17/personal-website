@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import '../App.css';
 import CreateProject from './CreateProject';
-import 'dotenv';
+
+const dotenv = require('dotenv').config();
 
 class AdminPanel extends Component {
+
     constructor() {
         super();
         this.state = {
