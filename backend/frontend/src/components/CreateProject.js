@@ -36,7 +36,7 @@ class CreateProject extends Component {
     };
 
     axios
-      .post('/api/projects', data)
+      .post('https://sb17.herokuapp.com/api/projects', data)
       .then(res => {
         this.setState({
           title: '',
