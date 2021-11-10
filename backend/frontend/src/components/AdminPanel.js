@@ -65,7 +65,7 @@ class AdminPanel extends Component {
                 <br />
                 <br />
                 {
-                    this.state.username == "admin" && this.state.password == process.env.ADMINPASSWORD && this.state.isSubmitted && <CreateProject />
+                    this.state.username == process.env.ADMINNICK && this.state.password == process.env.ADMINPASSWORD && this.state.isSubmitted && <CreateProject />
                 }
             </div>
         );
