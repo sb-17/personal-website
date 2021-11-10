@@ -24,9 +24,6 @@ const ProjectSchema = new mongoose.Schema({
   published_date: {
     type: String
   },
-  updated_date: {
-    type: String
-  },
   status: {
     type: String
   }

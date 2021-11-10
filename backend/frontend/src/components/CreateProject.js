@@ -12,6 +12,7 @@ class CreateProject extends Component {
       description: '',
       language: '',
       sourcecode: '',
+      download: '',
       published_date: '',
       status: ''
     };
