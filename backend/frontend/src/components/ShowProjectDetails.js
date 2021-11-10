@@ -13,10 +13,10 @@ class ShowProjectDetails extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:8082/api/projects/'+this.props.match.params.id)
+      .get('http://localhost:8082/api/projects/' + this.props.match.params.id)
       .then(res => {
         this.setState({
-            project: res.data
+          project: res.data
         })
       })
       .catch(err => {
@@ -24,9 +24,9 @@ class ShowProjectDetails extends Component {
       })
   };
 
-  onDeleteClick (id) {
+  onDeleteClick(id) {
     axios
-      .delete('http://localhost:8082/api/projects/'+id)
+      .delete('http://localhost:8082/api/projects/' + id)
       .then(res => {
         this.props.history.push("/projects");
       })
@@ -43,39 +43,39 @@ class ShowProjectDetails extends Component {
           <tr>
             <th scope="row"></th>
             <td>Title</td>
-            <td>{ project.title }</td>
+            <td>{project.title}</td>
           </tr>
           <tr>
             <th scope="row"></th>
             <td>Author</td>
-            <td>{ project.author }</td>
+            <td>{project.author}</td>
           </tr>
           <tr>
             <th scope="row"></th>
             <td>Published Date</td>
-            <td>{ project.published_date }</td>
+            <td>{project.published_date}</td>
           </tr>
           <tr>
             <th scope="row"></th>
             <td>Description</td>
-            <td>{ project.description }</td>
+            <td>{project.description}</td>
           </tr>
           <tr>
             <th scope="row"></th>
             <td>Programming language</td>
-            <td>{ project.language }</td>
+            <td>{project.language}</td>
           </tr>
           <tr>
             <th scope="row"></th>
             <td>Source code</td>
             <td>
-              <Link to={{ pathname: project.sourcecode }} target="_blank">{ project.sourcecode }</Link>
+              <Link to={{ pathname: project.sourcecode }} target="_blank">{project.sourcecode}</Link>
             </td>
           </tr>
           <tr>
             <th scope="row"></th>
             <td>Status</td>
-            <td>{ project.status} </td>
+            <td>{project.status} </td>
           </tr>
         </tbody>
       </table>
@@ -86,26 +86,13 @@ class ShowProjectDetails extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <br/>
-              <h1 className="display-4 text-center">{ project.title }</h1>
+              <br />
+              <h1 className="display-4 text-center">{project.title}</h1>
               <hr /> <br />
             </div>
           </div>
           <div>
-            { ProjectItem }
-          </div>
-
-          <div className="row">
-            <div className="col-md-6">
-              <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this,project._id)}>Delete Project</button><br />
-            </div>
-
-            <div className="col-md-6">
-              <Link to={`/edit-project/${project._id}`} className="btn btn-outline-info btn-lg btn-block">
-                    Edit Project
-              </Link>
-              <br />
-            </div>
+            {ProjectItem}
           </div>
         </div>
       </div>
