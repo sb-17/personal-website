@@ -1,0 +1,38 @@
+const express = require('express');
+const router = express.Router();
+
+const Project = require('../../models/Project');
+
+router.get('/', (req, res) => {
+  Project.find()
+    .then(projects => res.json(projects))
+    .catch(err => res.status(404).json({ noprojectsfound: 'No Projects found' }));
+});
+
+router.get('/:id', (req, res) => {
+  Project.findById(req.params.id)
+    .then(project => res.json(project))
+    .catch(err => res.status(404).json({ noprojectfound: 'No Project found' }));
+});
+
+router.post('/', (req, res) => {
+  Project.create(req.body)
+    .then(project => res.json({ msg: 'Project added successfully' }))
+    .catch(err => res.status(400).json({ error: 'Unable to add this project' }));
+});
+
+router.put('/:id', (req, res) => {
+  Project.findByIdAndUpdate(req.params.id, req.body)
+    .then(project => res.json({ msg: 'Updated successfully' }))
+    .catch(err =>
+      res.status(400).json({ error: 'Unable to update the Database' })
+    );
+});
+
+router.delete('/:id', (req, res) => {
+  Project.findByIdAndRemove(req.params.id, req.body)
+    .then(project => res.json({ mgs: 'Project entry deleted successfully' }))
+    .catch(err => res.status(404).json({ error: 'No such a project' }));
+});
+
+module.exports = router;
