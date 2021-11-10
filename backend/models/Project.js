@@ -18,6 +18,9 @@ const ProjectSchema = new mongoose.Schema({
   sourcecode: {
     type: String
   },
+  download: {
+    type: String
+  },
   published_date: {
     type: String
   },
@@ -25,9 +28,6 @@ const ProjectSchema = new mongoose.Schema({
     type: String
   },
   status: {
-    type: String
-  },
-  download: {
     type: String
   }
 });
