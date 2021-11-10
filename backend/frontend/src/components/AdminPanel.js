@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import '../App.css';
 import CreateProject from './CreateProject';
-
-const dotenv = require('dotenv').config();
+require('dotenv').config();
 
 class AdminPanel extends Component {
-
     constructor() {
         super();
         this.state = {
@@ -67,7 +65,7 @@ class AdminPanel extends Component {
                 <br />
                 <br />
                 {
-                    this.state.username === process.env.ADMINNICK && this.state.password === process.env.ADMINPASSWORD && this.state.isSubmitted && <CreateProject />
+                    this.state.username === process.env.REACT_APP_ADMINNICK && this.state.password === process.env.REACT_APP_ADMINPASSWORD && this.state.isSubmitted && <CreateProject />
                 }
             </div>
         );
