@@ -26,6 +26,9 @@ const ProjectSchema = new mongoose.Schema({
   },
   status: {
     type: String
+  },
+  download: {
+    type: String
   }
 });
 
