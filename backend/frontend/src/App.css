@@ -53,7 +53,7 @@
 .ShowProjectDetails {
   background-color: #233649;
   min-height: 100vh;
-  min-width: 200px;
+  width: 100%;
   color: white;
 }
 
@@ -148,5 +148,22 @@ h4 {
 
 .details-container {
   max-width: 70%;
-  min-width: 25%;
+}
+
+@media screen and (max-width: 699px) {
+  .details-container {
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 985px) {
+  .details-container {
+    max-width: 90%;
+  }
+}
+
+@media screen and (min-width: 986px) and (max-width: 1300px) {
+  .details-container {
+    max-width: 80%;
+  }
 }

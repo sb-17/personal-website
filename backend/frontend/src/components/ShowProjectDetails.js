@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
+import Table from 'react-bootstrap/Table';
 
 class ShowProjectDetails extends Component {
   constructor(props) {
@@ -26,8 +27,8 @@ class ShowProjectDetails extends Component {
 
   render() {
     const project = this.state.project;
-    let ProjectItem = <div>
-      <table className="details-tabl table-hover table-dark">
+    let ProjectItem =
+      <Table hover variant="dark" responsive="sm">
         <tbody>
           <tr>
             <th scope="row"></th>
@@ -77,8 +78,7 @@ class ShowProjectDetails extends Component {
             </tr>
           }
         </tbody>
-      </table>
-    </div>
+      </Table>
 
     return (
       <div className="ShowProjectDetails">
