@@ -8,6 +8,7 @@ import ShowProjectDetails from './components/ShowProjectDetails';
 import AdminPanel from './components/AdminPanel';
 import About from './components/About';
 import NavigationBar from './components/NavigationBar';
+import Footer from './components/Footer';
 
 function Router() {
 
@@ -19,6 +20,7 @@ function Router() {
         <Route path='/project/:id' component={ShowProjectDetails} />
         <Route path='/adminpanel' component={AdminPanel} />
         <Route path='/about' component={About} />
+        <Footer />
     </BrowserRouter>
   );
 }
