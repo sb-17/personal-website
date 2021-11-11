@@ -65,7 +65,7 @@
 .ShowProjectList {
   background-color: #233649;
   color: white;
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
 
@@ -128,4 +128,8 @@
 
 h4 {
   color: #adadad;
+}
+
+.details-container {
+  max-width: 90%;
 }

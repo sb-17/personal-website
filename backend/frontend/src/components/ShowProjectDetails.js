@@ -82,7 +82,7 @@ class ShowProjectDetails extends Component {
 
     return (
       <div className="ShowProjectDetails">
-        <div className="container">
+        <div className="container details-container">
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
