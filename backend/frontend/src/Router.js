@@ -13,14 +13,12 @@ function Router() {
 
   return (
     <BrowserRouter>
-      <div>
         <NavigationBar />
         <Route exact path='/' component={Home} />
         <Route path='/projects' component={ShowProjectList} />
         <Route path='/project/:id' component={ShowProjectDetails} />
         <Route path='/adminpanel' component={AdminPanel} />
         <Route path='/about' component={About} />
-      </div>
     </BrowserRouter>
   );
 }
