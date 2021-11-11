@@ -20,15 +20,14 @@ function Footer() {
 export default Footer;
 
 const FooterContainer = styled.footer`
-    .main-footer {
-        display: flex;
-        flex: 0 1 auto;
-    }
-
     .footer-middle {
         background: var(--dark);
         padding-top: 1.5rem;
         color: var(--white);
+        position: fixed;
+        left: 0%;
+        bottom: 0%;
+        width: 100%;
     }
 
     .footer-bottom {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
 import ProjectContainer from './ProjectContainer';
-import MediaQuery from 'react-responsive';
 
 class ShowProjectList extends Component {
   constructor(props) {
@@ -33,7 +32,7 @@ class ShowProjectList extends Component {
       projectList = "there is no project record!";
     } else {
       projectList = projects.map((project, k) =>
-        <div className="container-grid container">
+        <div className="container">
           <ProjectContainer project={project} key={k} />
         </div>
       );
@@ -47,33 +46,13 @@ class ShowProjectList extends Component {
               <br />
               <h2 className="display-4 text-center">Project List</h2>
             </div>
-
             <div className="col-md-11">
               <br />
-              <br />
             </div>
-
           </div>
-          <MediaQuery maxWidth={699}>
-            <div className="list container-grid1">
-              {projectList}
-            </div>
-          </MediaQuery>
-          <MediaQuery minWidth={700} maxWidth={985}>
-            <div className="list container-grid2">
-              {projectList}
-            </div>
-          </MediaQuery>
-          <MediaQuery minWidth={986} maxWidth={1300}>
-            <div className="list container-grid3">
-              {projectList}
-            </div>
-          </MediaQuery>
-          <MediaQuery minWidth={1301}>
-            <div className="list container-grid4">
-              {projectList}
-            </div>
-          </MediaQuery>
+          <div className="list">
+            {projectList}
+          </div>
         </div>
       </div>
     );
