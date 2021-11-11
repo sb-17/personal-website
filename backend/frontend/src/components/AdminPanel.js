@@ -24,6 +24,7 @@ class AdminPanel extends Component {
     }
 
     render() {
+        document.title = "Admin Panel";
         return (
             <div className="CreateProject">
                 <div className="container">

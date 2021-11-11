@@ -3,6 +3,7 @@ import '../App.css';
 
 class Home extends Component {
   render() {
+    document.title = "Home";
     return (
       <div className="Home">
         <div className="container">

@@ -57,6 +57,7 @@ class CreateProject extends Component {
   };
 
   render() {
+    document.title = "Create Project";
     return (
       <div className="CreateProject">
         <div className="container">

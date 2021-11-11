@@ -26,6 +26,7 @@ class ShowProjectList extends Component {
 
   render() {
     const projects = this.state.projects;
+    document.title = "Projects";
     let projectList;
 
     if (!projects) {
