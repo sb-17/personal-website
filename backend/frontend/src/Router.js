@@ -13,15 +13,15 @@ import Footer from './components/Footer';
 function Router() {
 
   return (
-    <BrowserRouter>
-        <NavigationBar />
-        <Route exact path='/' component={Home} />
-        <Route path='/projects' component={ShowProjectList} />
-        <Route path='/project/:id' component={ShowProjectDetails} />
-        <Route path='/adminpanel' component={AdminPanel} />
-        <Route path='/about' component={About} />
-        <Footer />
-    </BrowserRouter>
+      <BrowserRouter>
+          <NavigationBar />
+            <Route exact path='/' component={Home} />
+            <Route path='/projects' component={ShowProjectList} />
+            <Route path='/project/:id' component={ShowProjectDetails} />
+            <Route path='/adminpanel' component={AdminPanel} />
+            <Route path='/about' component={About} />
+          <Footer />
+      </BrowserRouter>
   );
 }
 

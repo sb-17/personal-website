@@ -64,9 +64,10 @@
 
 .ShowProjectList {
   background-color: #233649;
-  height: 100%;
-  width: 100%;
   color: white;
+  display: flex;
+  height: 100%;
+  flex: 1 1 auto;
 }
 
 .list {
