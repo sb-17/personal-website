@@ -145,8 +145,5 @@ h4 {
 
 .details-container {
   max-width: 70%;
-}
-
-.details-table {
-  min-width: 200px;
+  min-width: 25%;
 }
