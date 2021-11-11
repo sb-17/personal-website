@@ -53,6 +53,7 @@
 .ShowProjectDetails {
   background-color: #233649;
   min-height: 100vh;
+  min-width: 200px;
   color: white;
 }
 
