@@ -50,28 +50,149 @@ class ShowProjectList extends Component {
 
             <div className="col-md-11">
               <br />
-              <hr />
+              <br />
             </div>
 
           </div>
           <MediaQuery maxWidth={699}>
-            <div className="list container-grid1">
+            <div className="list container-grid4">
               {projectList}
+              <div className="project-container">
+                <div className="desc">
+                  <h2>
+                    <h4>fghgfhfgh | fghgfhgh</h4>
+                  </h2>
+                  <br />
+                  <p>fghfghghfhfg</p>
+                  <br />
+                  <p>fghfghhgfgh</p>
+                </div>
+              </div>
+              <div className="project-container">
+                <div className="desc">
+                  <h2>
+                    <h4>fghgfhfgh | fghgfhgh</h4>
+                  </h2>
+                  <br />
+                  <p>fghfghghfhfg</p>
+                  <br />
+                  <p>fghfghhgfgh</p>
+                </div>
+              </div>
             </div>
           </MediaQuery>
           <MediaQuery minWidth={700} maxWidth={985}>
-            <div className="list container-grid2">
+            <div className="list container-grid4">
               {projectList}
+              <div className="project-container">
+                <div className="desc">
+                  <h2>
+                    <h4>fghgfhfgh | fghgfhgh</h4>
+                  </h2>
+                  <br />
+                  <p>fghfghghfhfg</p>
+                  <br />
+                  <p>fghfghhgfgh</p>
+                </div>
+              </div>
+              <div className="project-container">
+                <div className="desc">
+                  <h2>
+                    <h4>fghgfhfgh | fghgfhgh</h4>
+                  </h2>
+                  <br />
+                  <p>fghfghghfhfg</p>
+                  <br />
+                  <p>fghfghhgfgh</p>
+                </div>
+              </div>
             </div>
           </MediaQuery>
           <MediaQuery minWidth={986} maxWidth={1300}>
-            <div className="list container-grid3">
+            <div className="list container-grid4">
               {projectList}
+              <div className="project-container">
+                <div className="desc">
+                  <h2>
+                    <h4>fghgfhfgh | fghgfhgh</h4>
+                  </h2>
+                  <br />
+                  <p>fghfghghfhfg</p>
+                  <br />
+                  <p>fghfghhgfgh</p>
+                </div>
+              </div>
+              <div className="project-container">
+                <div className="desc">
+                  <h2>
+                    <h4>fghgfhfgh | fghgfhgh</h4>
+                  </h2>
+                  <br />
+                  <p>fghfghghfhfg</p>
+                  <br />
+                  <p>fghfghhgfgh</p>
+                </div>
+              </div>
             </div>
           </MediaQuery>
           <MediaQuery minWidth={1301}>
             <div className="list container-grid4">
               {projectList}
+              <div className="project-container">
+                <div className="desc">
+                  <h2>
+                    <h4>fghgfhfgh | fghgfhgh</h4>
+                  </h2>
+                  <br />
+                  <p>fghfghghfhfg</p>
+                  <br />
+                  <p>fghfghhgfgh</p>
+                </div>
+              </div>
+              <div className="project-container">
+                <div className="desc">
+                  <h2>
+                    <h4>fghgfhfgh | fghgfhgh</h4>
+                  </h2>
+                  <br />
+                  <p>fghfghghfhfg</p>
+                  <br />
+                  <p>fghfghhgfgh</p>
+                </div>
+              </div>
+              <div className="project-container">
+                <div className="desc">
+                  <h2>
+                    <h4>fghgfhfgh | fghgfhgh</h4>
+                  </h2>
+                  <br />
+                  <p>fghfghghfhfg</p>
+                  <br />
+                  <p>fghfghhgfgh</p>
+                </div>
+              </div>
+              <div className="project-container">
+                <div className="desc">
+                  <h2>
+                    <h4>fghgfhfgh | fghgfhgh</h4>
+                  </h2>
+                  <br />
+                  <p>fghfghghfhfg</p>
+                  <br />
+                  <p>fghfghhgfgh</p>
+                </div>
+              </div>
+              <div className="project-container">
+                <div className="desc">
+                  <h2>
+                    <h4>fghgfhfgh | fghgfhgh</h4>
+                  </h2>
+                  <br />
+                  <p>fghfghghfhfg</p>
+                  <br />
+                  <p>fghfghhgfgh</p>
+                </div>
+              </div>
             </div>
           </MediaQuery>
         </div>
