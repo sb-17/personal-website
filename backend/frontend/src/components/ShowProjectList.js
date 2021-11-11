@@ -54,12 +54,12 @@ class ShowProjectList extends Component {
             </div>
 
           </div>
-          <MediaQuery maxWidth={640}>
+          <MediaQuery maxWidth={699}>
             <div className="list container-grid1">
               {projectList}
             </div>
           </MediaQuery>
-          <MediaQuery minWidth={641} maxWidth={985}>
+          <MediaQuery minWidth={700} maxWidth={985}>
             <div className="list container-grid2">
               {projectList}
             </div>
