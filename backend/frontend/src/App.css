@@ -88,9 +88,19 @@
   background-color: #1a3f64;
 }
 
-.container-grid {
+.container-grid4 {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.container-grid3 {
   display: grid;
   grid-template-columns: auto auto auto;
+}
+
+.container-grid2 {
+  display: grid;
+  grid-template-columns: auto auto;
 }
 
 .container-grid1 {
