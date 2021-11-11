@@ -27,6 +27,7 @@ class ShowProjectDetails extends Component {
 
   render() {
     const project = this.state.project;
+    document.title = project.title;
     let ProjectItem =
       <Table hover variant="dark" responsive="sm">
         <tbody>
