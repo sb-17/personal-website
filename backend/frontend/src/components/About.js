@@ -12,11 +12,6 @@ class About extends Component {
                             <br />
                             <h2 className="display-4 text-center">About me</h2>
                             <hr /> <br />
-                            <br />
-                            <br />
-                            <p>
-
-                            </p>
                         </div>
                     </div>
                 </div>
