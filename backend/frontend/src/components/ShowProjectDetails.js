@@ -27,7 +27,7 @@ class ShowProjectDetails extends Component {
   render() {
     const project = this.state.project;
     let ProjectItem = <div>
-      <table className="table table-hover table-dark">
+      <table className="details-table table table-hover table-dark">
         <tbody>
           <tr>
             <th scope="row"></th>
