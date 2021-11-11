@@ -24,9 +24,6 @@ const FooterContainer = styled.footer`
         background: var(--dark);
         padding-top: 1.5rem;
         color: var(--white);
-        position: fixed;
-        left: 0%;
-        bottom: 0%;
         width: 100%;
     }
 
