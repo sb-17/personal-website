@@ -32,7 +32,9 @@ class ShowProjectList extends Component {
       projectList = "there is no project record!";
     } else {
       projectList = projects.map((project, k) =>
-        <ProjectContainer project={project} key={k} />
+        <div className="container-grid">
+          <ProjectContainer project={project} key={k} />
+        </div>
       );
     }
 
