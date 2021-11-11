@@ -32,8 +32,8 @@ class CreateProject extends Component {
       language: this.state.language,
       sourcecode: this.state.sourcecode,
       download: this.state.download,
-      published_date: moment().format("DD/MM/YYYY"),
-      status: "In development"
+      published_date: this.state.published_date,
+      status: this.state.status
     };
 
     axios
@@ -109,6 +109,28 @@ class CreateProject extends Component {
                     name='language'
                     className='form-control'
                     value={this.state.language}
+                    onChange={this.onChange}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='Date'
+                    name='published_date'
+                    className='form-control'
+                    value={this.state.published_date}
+                    onChange={this.onChange}
+                  />
+                </div>
+
+                <div className='form-group'>
+                  <input
+                    type='text'
+                    placeholder='Status'
+                    name='status'
+                    className='form-control'
+                    value={this.state.status}
                     onChange={this.onChange}
                   />
                 </div>
