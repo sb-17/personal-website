@@ -8,8 +8,9 @@ class Home extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <br/>
+              <br />
               <h2 className="display-4 text-center">Welcome</h2>
+              <hr /> <br />
             </div>
           </div>
         </div>
