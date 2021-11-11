@@ -67,7 +67,7 @@ class ShowProjectDetails extends Component {
             </td>
           </tr>
           {
-            project.download != null &&
+            project.download != "" &&
             <tr>
               <th scope="row"></th>
               <td>Download link</td>
