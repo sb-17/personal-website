@@ -90,7 +90,12 @@
 
 .container-grid {
   display: grid;
-  grid-template-columns: max-content;
+  grid-template-columns: auto auto auto;
+}
+
+.container-grid1 {
+  display: grid;
+  grid-template-columns: auto;
 }
 
 .desc {

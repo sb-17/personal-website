@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
 import ProjectContainer from './ProjectContainer';
+import MediaQuery from 'react-responsive';
 
 class ShowProjectList extends Component {
   constructor(props) {
@@ -53,9 +54,16 @@ class ShowProjectList extends Component {
             </div>
 
           </div>
-          <div className="list">
-            {projectList}
-          </div>
+          <MediaQuery maxHeight={767}>
+            <div className="list container-grid1">
+              {projectList}
+            </div>
+          </MediaQuery>
+          <MediaQuery minHeight={768}>
+            <div className="list container-grid">
+              {projectList}
+            </div>
+          </MediaQuery>
         </div>
       </div>
     );
