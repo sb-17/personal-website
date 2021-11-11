@@ -34,26 +34,34 @@
 
 .Home {
   background-color: #233649;
-  min-height: 100vh;
   color: white;
+  display: flex;
+  height: 100%;
+  flex: 1 1 auto;
 }
 
 .About {
   background-color: #233649;
-  min-height: 100vh;
   color: white;
+  display: flex;
+  height: 100%;
+  flex: 1 1 auto;
 }
 
 .CreateProject {
   background-color: #233649;
-  min-height: 100vh;
   color: white;
+  display: flex;
+  height: 100%;
+  flex: 1 1 auto;
 }
 
 .ShowProjectDetails {
   background-color: #233649;
-  min-height: 100vh;
   color: white;
+  display: flex;
+  height: 100%;
+  flex: 1 1 auto;
 }
 
 .UpdateProject {
@@ -85,7 +93,7 @@
   border-radius: 5px;
   overflow: hidden;
   background-color: #1a3f64;
-  padding-top: 10px;
+  padding-top: 30px;
 }
 
 .container-grid4 {
