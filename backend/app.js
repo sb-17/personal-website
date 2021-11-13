@@ -5,10 +5,10 @@ const bodyParser = require("body-parser");
 
 const mongoose = require('mongoose');
 const dotenv = require("dotenv");
-
 dotenv.config();
 
 const projects = require('./routes/api/projects');
+const auth = require('./routes/api/auth');
 
 const app = express();
 
@@ -31,6 +31,7 @@ app.use(express.json({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api/projects', projects);
+app.use('/api/auth', auth);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, '/frontend/build')));

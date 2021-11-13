@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
-import moment from 'moment';
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 class CreateProject extends Component {
   constructor() {
@@ -25,35 +25,46 @@ class CreateProject extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    const data = {
-      title: this.state.title,
-      author: this.state.author,
-      description: this.state.description,
-      language: this.state.language,
-      sourcecode: this.state.sourcecode,
-      download: this.state.download,
-      published_date: this.state.published_date,
-      status: this.state.status
-    };
+    const header = {
+      headers: {
+        'Authorization': reactLocalStorage.get('token')
+      }
+    }
 
-    axios
-      .post('/api/projects', data)
-      .then(res => {
-        this.setState({
-          title: '',
-          author: '',
-          description: '',
-          language: '',
-          sourcecode: '',
-          published_date: '',
-          status: '',
-          download: ''
-        })
-        this.props.history.push('/projects');
-      })
-      .catch(err => {
-        console.log("Error in CreateProject!");
-      })
+    axios.post('/api/auth', null, header).then(response => {
+      console.log(response.data.data.user);
+      if (response.data.data.user) {
+        const data = {
+          title: this.state.title,
+          author: this.state.author,
+          description: this.state.description,
+          language: this.state.language,
+          sourcecode: this.state.sourcecode,
+          download: this.state.download,
+          published_date: this.state.published_date,
+          status: this.state.status
+        };
+
+        axios
+          .post('/api/projects', data)
+          .then(res => {
+            this.setState({
+              title: '',
+              author: '',
+              description: '',
+              language: '',
+              sourcecode: '',
+              published_date: '',
+              status: '',
+              download: ''
+            })
+            this.props.history.push('/projects');
+          })
+          .catch(err => {
+            console.log("Error in CreateProject!");
+          })
+      }
+    });
   };
 
   render() {

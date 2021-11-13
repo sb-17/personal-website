@@ -1,6 +1,8 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import '../App.css';
 import CreateProject from './CreateProject';
+import { reactLocalStorage } from 'reactjs-localstorage';
 require('dotenv').config();
 
 class AdminPanel extends Component {
@@ -19,6 +21,15 @@ class AdminPanel extends Component {
 
     onSubmit = e => {
         e.preventDefault();
+
+        const data = {
+            username: this.state.username,
+            password: this.state.password
+        };
+
+        axios.post('/api/auth/login', data).then(response => {
+            reactLocalStorage.set('token', response.data.token);
+        });
 
         this.setState({ isSubmitted: true });
     }
