@@ -32,7 +32,6 @@ class CreateProject extends Component {
     }
 
     axios.post('/api/auth', null, header).then(response => {
-      console.log(response.data.data.user);
       if (response.data.data.user) {
         const data = {
           title: this.state.title,
@@ -46,7 +45,7 @@ class CreateProject extends Component {
         };
 
         axios
-          .post('/api/projects', data)
+          .post('/api/projects', data, header)
           .then(res => {
             this.setState({
               title: '',
@@ -57,8 +56,7 @@ class CreateProject extends Component {
               published_date: '',
               status: '',
               download: ''
-            })
-            this.props.history.push('/projects');
+            });
           })
           .catch(err => {
             console.log("Error in CreateProject!");

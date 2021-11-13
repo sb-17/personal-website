@@ -43,9 +43,9 @@ router.post('/login', async (req, res) => {
 
 router.post('/', (req, res) => {
     const token = req.headers.authorization;
-    if (!token) return res.status(401).send('Please provide an Authorization header');
+    if (!token) return res.status(403).send('Please provide an Authorization header');
     const authdata = this.auth(token);
-    if (!authdata) return res.status(401).send('Invalid token');
+    if (!authdata) return res.status(403).send('Invalid token');
     res.status(200).send({ message: 'Authentication successful!', data: { user: authdata } });
 });
 
@@ -81,4 +81,4 @@ function auth(token) {
 }
 
 exports.auth = auth;
-module.exports = router;
+exports.router = router;

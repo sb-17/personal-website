@@ -31,7 +31,7 @@ app.use(express.json({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api/projects', projects);
-app.use('/api/auth', auth);
+app.use('/api/auth', auth.router);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, '/frontend/build')));

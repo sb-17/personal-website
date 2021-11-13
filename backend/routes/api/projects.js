@@ -1,7 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const app = express();
 
 const Project = require('../../models/Project');
+
+const auth = require('./auth');
+
+app.use('/auth', auth.router);
 
 router.get('/', (req, res) => {
   Project.find()
@@ -16,9 +21,14 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  Project.create(req.body)
-    .then(project => res.json({ msg: 'Project added successfully' }))
-    .catch(err => res.status(400).json({ error: 'Unable to add this project' }));
+  const token = req.headers.authorization;
+  const authorization = auth.auth(token);
+
+  if (authorization) {
+    Project.create(req.body)
+      .then(project => res.json({ msg: 'Project added successfully' }))
+      .catch(err => res.status(400).json({ error: 'Unable to add this project' }));
+  }
 });
 
 router.put('/:id', (req, res) => {
