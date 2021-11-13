@@ -32,17 +32,27 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  Project.findByIdAndUpdate(req.params.id, req.body)
-    .then(project => res.json({ msg: 'Updated successfully' }))
-    .catch(err =>
-      res.status(400).json({ error: 'Unable to update the Database' })
-    );
+  const token = req.headers.authorization;
+  const authorization = auth.auth(token);
+
+  if (authorization) {
+    Project.findByIdAndUpdate(req.params.id, req.body)
+      .then(project => res.json({ msg: 'Updated successfully' }))
+      .catch(err =>
+        res.status(400).json({ error: 'Unable to update the Database' })
+      );
+  }
 });
 
 router.delete('/:id', (req, res) => {
-  Project.findByIdAndRemove(req.params.id, req.body)
-    .then(project => res.json({ mgs: 'Project entry deleted successfully' }))
-    .catch(err => res.status(404).json({ error: 'No such a project' }));
+  const token = req.headers.authorization;
+  const authorization = auth.auth(token);
+
+  if (authorization) {
+    Project.findByIdAndRemove(req.params.id, req.body)
+      .then(project => res.json({ mgs: 'Project entry deleted successfully' }))
+      .catch(err => res.status(404).json({ error: 'No such a project' }));
+  }
 });
 
 module.exports = router;
