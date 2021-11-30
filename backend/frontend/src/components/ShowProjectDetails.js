@@ -3,16 +3,30 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 class ShowProjectDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      project: {}
+      project: {},
+      loggedIn: false
     };
   }
 
   componentDidMount() {
+    const header = {
+      headers: {
+        'Authorization': reactLocalStorage.get('token')
+      }
+    }
+
+    axios.post('/api/auth', null, header).then(response => {
+      if (response.data.data.user) {
+        this.setState({ loggedIn: true });
+      }
+    });
+
     axios
       .get('/api/projects/' + this.props.match.params.id)
       .then(res => {
@@ -24,6 +38,20 @@ class ShowProjectDetails extends Component {
         console.log("Error from ShowProjectDetails");
       })
   };
+
+  editPage = e => {
+    const header = {
+      headers: {
+        'Authorization': reactLocalStorage.get('token')
+      }
+    }
+
+    axios.post('/api/auth', null, header).then(response => {
+      if (response.data.data.user) {
+        this.props.history.push('/edit/' + this.props.match.params.id);
+      }
+    });
+  }
 
   render() {
     const project = this.state.project;
@@ -96,6 +124,14 @@ class ShowProjectDetails extends Component {
           </div>
           <div>
             {ProjectItem}
+            {
+              this.state.loggedIn &&
+              <div>
+                <br />
+                <br />
+                <button onClick={this.editPage.bind()} className="btn btn-outline-info btn-lg btn-block">Edit Project</button>
+              </div>
+            }
           </div>
         </div>
       </div>
