@@ -38,6 +38,12 @@
   color: white;
 }
 
+.TodoList {
+  background-color: #233649;
+  min-height: 100vh;
+  color: white;
+}
+
 .About {
   background-color: #233649;
   min-height: 100vh;
