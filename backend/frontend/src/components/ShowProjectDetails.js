@@ -61,13 +61,16 @@ class ShowProjectDetails extends Component {
             <td>Status</td>
             <td>{project.status} </td>
           </tr>
-          <tr>
-            <th scope="row"></th>
-            <td>Source code</td>
-            <td>
-              <Link to={{ pathname: project.sourcecode }} target="_blank">{project.sourcecode}</Link>
-            </td>
-          </tr>
+          {
+            project.sourcecode &&
+            <tr>
+              <th scope="row"></th>
+              <td>Source code</td>
+              <td>
+                <Link to={{ pathname: project.sourcecode }} target="_blank">{project.sourcecode}</Link>
+              </td>
+            </tr>
+          }
           {
             project.download &&
             <tr>
