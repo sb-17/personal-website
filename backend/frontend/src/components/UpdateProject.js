@@ -122,8 +122,7 @@ class UpdateProject extends Component {
             <div className="col-md-8 m-auto">
               <br />
               <h1 className="display-4 text-center">Edit Project - {this.state.title}</h1>
-              <br />
-              <br />
+              <hr />
             </div>
           </div>
 
@@ -217,6 +216,8 @@ class UpdateProject extends Component {
 
               <button onClick={this.deleteProject} className="btn btn-outline-danger btn-lg btn-block">Delete Project</button>
             </form>
+            <br/>
+            <br/>
           </div>
 
         </div>

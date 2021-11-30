@@ -41,7 +41,9 @@ class AdminPanel extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 m-auto">
+                            <br />
                             <h1 className="display-4 text-center">Admin Panel</h1>
+                            <hr />
 
                             <form noValidate onSubmit={this.onSubmit}>
                                 <div className='form-group'>

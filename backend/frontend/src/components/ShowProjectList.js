@@ -46,7 +46,7 @@ class ShowProjectList extends Component {
             <div className="col-md-12">
               <br />
               <h2 className="display-4 text-center">Project List</h2>
-              <hr /> <br />
+              <hr />
             </div>
           </div>
           <div className="list">
