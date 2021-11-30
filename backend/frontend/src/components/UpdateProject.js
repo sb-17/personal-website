@@ -114,13 +114,14 @@ class UpdateProject extends Component {
   };
 
   render() {
+    document.title = "Edit " + this.state.title.toString();
     return (
       <div className="UpdateProject">
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
               <br />
-              <h1 className="display-4 text-center">Edit Project</h1>
+              <h1 className="display-4 text-center">Edit Project - {this.state.title}</h1>
               <br />
               <br />
             </div>
