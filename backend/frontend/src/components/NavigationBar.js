@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import { reactLocalStorage } from 'reactjs-localstorage';
+import axios from 'axios';
 
 class NavigationBar extends Component {
   constructor(props) {
