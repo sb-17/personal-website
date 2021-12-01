@@ -24,6 +24,7 @@ function Router() {
       <Route path='/create' component={CreateProject} />
       <Route path='/login' component={Login} />
       <Route path='/about' component={About} />
+      <Route path='*' component={Home} />
       <Footer />
     </BrowserRouter>
   );
