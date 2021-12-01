@@ -113,28 +113,26 @@ class ShowProjectDetails extends Component {
       </Table>
 
     return (
-      <div className="ShowProjectDetails">
-        <div className="container details-container">
-          <div className="row">
-            <div className="col-md-8 m-auto">
+      <div className="container details-container">
+        <div className="row">
+          <div className="col-md-8 m-auto">
+            <br />
+            <h1 className="display-4 text-center">{project.title}</h1>
+            <hr />
+          </div>
+        </div>
+        <div>
+          {ProjectItem}
+          {
+            this.state.loggedIn &&
+            <div>
               <br />
-              <h1 className="display-4 text-center">{project.title}</h1>
-              <hr />
+              <br />
+              <button onClick={this.editPage.bind()} className="btn btn-outline-info btn-lg btn-block">Edit Project</button>
+              <br />
+              <br />
             </div>
-          </div>
-          <div>
-            {ProjectItem}
-            {
-              this.state.loggedIn &&
-              <div>
-                <br />
-                <br />
-                <button onClick={this.editPage.bind()} className="btn btn-outline-info btn-lg btn-block">Edit Project</button>
-                <br />
-                <br />
-              </div>
-            }
-          </div>
+          }
         </div>
       </div>
     );

@@ -118,110 +118,107 @@ class UpdateProject extends Component {
   render() {
     document.title = "Edit " + this.state.title.toString();
     return (
-      <div className="UpdateProject">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8 m-auto">
-              <br />
-              <h1 className="display-4 text-center">Edit Project - {this.state.title}</h1>
-              <hr />
-            </div>
-          </div>
-
+      <div className="container">
+        <div className="row">
           <div className="col-md-8 m-auto">
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className='form-group'>
-                <label htmlFor="title">Title</label>
-                <input
-                  type='text'
-                  placeholder='Title of the Project'
-                  name='title'
-                  className='form-control'
-                  value={this.state.title}
-                  onChange={this.onChange}
-                />
-              </div>
-
-              <div className='form-group'>
-                <label htmlFor="author">Author</label>
-                <input
-                  type='text'
-                  placeholder='Author'
-                  name='author'
-                  className='form-control'
-                  value={this.state.author}
-                  onChange={this.onChange}
-                />
-              </div>
-
-              <div className='form-group'>
-                <label htmlFor="description">Description</label>
-                <input
-                  type='text'
-                  placeholder='Describe this Project'
-                  name='description'
-                  className='form-control'
-                  value={this.state.description}
-                  onChange={this.onChange}
-                />
-              </div>
-
-              <div className='form-group'>
-                <label htmlFor="language">Programming language</label>
-                <input
-                  type='text'
-                  placeholder='Programming language'
-                  name='language'
-                  className='form-control'
-                  value={this.state.language}
-                  onChange={this.onChange}
-                />
-              </div>
-
-              <div className='form-group'>
-                <label htmlFor="sourcecode">Status</label>
-                <input
-                  type='text'
-                  placeholder='Status'
-                  name='status'
-                  className='form-control'
-                  value={this.state.status}
-                  onChange={this.onChange}
-                />
-              </div>
-
-              <div className='form-group'>
-                <label htmlFor="sourcecode">Source code</label>
-                <input
-                  type='text'
-                  placeholder='Source code'
-                  name='sourcecode'
-                  className='form-control'
-                  value={this.state.sourcecode}
-                  onChange={this.onChange}
-                />
-              </div>
-
-              <div className='form-group'>
-                <label htmlFor="sourcecode">Download link</label>
-                <input
-                  type='text'
-                  placeholder='Download link'
-                  name='download'
-                  className='form-control'
-                  value={this.state.download}
-                  onChange={this.onChange}
-                />
-              </div>
-
-              <button type="submit" className="btn btn-outline-info btn-lg btn-block">Update Project</button>
-
-              <button onClick={this.deleteProject} className="btn btn-outline-danger btn-lg btn-block">Delete Project</button>
-            </form>
             <br />
-            <br />
+            <h1 className="display-4 text-center">Edit Project - {this.state.title}</h1>
+            <hr />
           </div>
+        </div>
 
+        <div className="col-md-8 m-auto">
+          <form noValidate onSubmit={this.onSubmit}>
+            <div className='form-group'>
+              <label htmlFor="title">Title</label>
+              <input
+                type='text'
+                placeholder='Title of the Project'
+                name='title'
+                className='form-control'
+                value={this.state.title}
+                onChange={this.onChange}
+              />
+            </div>
+
+            <div className='form-group'>
+              <label htmlFor="author">Author</label>
+              <input
+                type='text'
+                placeholder='Author'
+                name='author'
+                className='form-control'
+                value={this.state.author}
+                onChange={this.onChange}
+              />
+            </div>
+
+            <div className='form-group'>
+              <label htmlFor="description">Description</label>
+              <input
+                type='text'
+                placeholder='Describe this Project'
+                name='description'
+                className='form-control'
+                value={this.state.description}
+                onChange={this.onChange}
+              />
+            </div>
+
+            <div className='form-group'>
+              <label htmlFor="language">Programming language</label>
+              <input
+                type='text'
+                placeholder='Programming language'
+                name='language'
+                className='form-control'
+                value={this.state.language}
+                onChange={this.onChange}
+              />
+            </div>
+
+            <div className='form-group'>
+              <label htmlFor="sourcecode">Status</label>
+              <input
+                type='text'
+                placeholder='Status'
+                name='status'
+                className='form-control'
+                value={this.state.status}
+                onChange={this.onChange}
+              />
+            </div>
+
+            <div className='form-group'>
+              <label htmlFor="sourcecode">Source code</label>
+              <input
+                type='text'
+                placeholder='Source code'
+                name='sourcecode'
+                className='form-control'
+                value={this.state.sourcecode}
+                onChange={this.onChange}
+              />
+            </div>
+
+            <div className='form-group'>
+              <label htmlFor="sourcecode">Download link</label>
+              <input
+                type='text'
+                placeholder='Download link'
+                name='download'
+                className='form-control'
+                value={this.state.download}
+                onChange={this.onChange}
+              />
+            </div>
+
+            <button type="submit" className="btn btn-outline-info btn-lg btn-block">Update Project</button>
+
+            <button onClick={this.deleteProject} className="btn btn-outline-danger btn-lg btn-block">Delete Project</button>
+          </form>
+          <br />
+          <br />
         </div>
       </div>
     );

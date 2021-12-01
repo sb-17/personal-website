@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import './App.css';
 
 import Home from './components/Home';
@@ -17,14 +17,15 @@ function Router() {
   return (
     <BrowserRouter>
       <NavigationBar />
-      <Route exact path='/' component={Home} />
-      <Route path='/projects' component={ShowProjectList} />
-      <Route path='/project/:id' component={ShowProjectDetails} />
-      <Route path='/edit/:id' component={UpdateProject} />
-      <Route path='/create' component={CreateProject} />
-      <Route path='/login' component={Login} />
-      <Route path='/about' component={About} />
-      <Route path='*' component={Home} />
+      <div className="Body">
+        <Route exact path='/' component={Home} />
+        <Route exact path='/projects' component={ShowProjectList} />
+        <Route exact path='/project/:id' component={ShowProjectDetails} />
+        <Route exact path='/edit/:id' component={UpdateProject} />
+        <Route exact path='/create' component={CreateProject} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/about' component={About} />
+      </div>
       <Footer />
     </BrowserRouter>
   );

@@ -36,47 +36,45 @@ class Login extends Component {
     render() {
         document.title = "Login";
         return (
-            <div className="CreateProject">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8 m-auto">
-                            <br />
-                            <h1 className="display-4 text-center">Login</h1>
-                            <hr />
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-8 m-auto">
+                        <br />
+                        <h1 className="display-4 text-center">Login</h1>
+                        <hr />
 
-                            <form noValidate onSubmit={this.onSubmit}>
-                                <div className='form-group'>
-                                    <input
-                                        type='text'
-                                        placeholder='Username'
-                                        name='username'
-                                        className='form-control'
-                                        value={this.state.username}
-                                        onChange={this.onChange}
-                                    />
-                                </div>
-
-                                <div className='form-group'>
-                                    <input
-                                        type='password'
-                                        placeholder='Password'
-                                        name='password'
-                                        className='form-control'
-                                        value={this.state.password}
-                                        onChange={this.onChange}
-                                    />
-                                </div>
-
+                        <form noValidate onSubmit={this.onSubmit}>
+                            <div className='form-group'>
                                 <input
-                                    type="submit"
-                                    className="btn btn-outline-warning btn-block mt-4"
+                                    type='text'
+                                    placeholder='Username'
+                                    name='username'
+                                    className='form-control'
+                                    value={this.state.username}
+                                    onChange={this.onChange}
                                 />
-                            </form>
-                        </div>
+                            </div>
+
+                            <div className='form-group'>
+                                <input
+                                    type='password'
+                                    placeholder='Password'
+                                    name='password'
+                                    className='form-control'
+                                    value={this.state.password}
+                                    onChange={this.onChange}
+                                />
+                            </div>
+
+                            <input
+                                type="submit"
+                                className="btn btn-outline-warning btn-block mt-4"
+                            />
+                        </form>
+                        <br />
+                        <br />
                     </div>
                 </div>
-                <br />
-                <br />
             </div>
         );
     }

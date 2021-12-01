@@ -80,109 +80,107 @@ class CreateProject extends Component {
   render() {
     document.title = "Create Project";
     return (
-      <div className="CreateProject">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8 m-auto">
-              <br />
-              <h1 className="display-4 text-center">Add Project</h1>
-              <hr />
+      <div className="container">
+        <div className="row">
+          <div className="col-md-8 m-auto">
+            <br />
+            <h1 className="display-4 text-center">Add Project</h1>
+            <hr />
 
-              <form noValidate onSubmit={this.onSubmit}>
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Title of the Project'
-                    name='title'
-                    className='form-control'
-                    value={this.state.title}
-                    onChange={this.onChange}
-                  />
-                </div>
-
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Author'
-                    name='author'
-                    className='form-control'
-                    value={this.state.author}
-                    onChange={this.onChange}
-                  />
-                </div>
-
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Describe this project'
-                    name='description'
-                    className='form-control'
-                    value={this.state.description}
-                    onChange={this.onChange}
-                  />
-                </div>
-
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Programming language'
-                    name='language'
-                    className='form-control'
-                    value={this.state.language}
-                    onChange={this.onChange}
-                  />
-                </div>
-
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Date'
-                    name='published_date'
-                    className='form-control'
-                    value={this.state.published_date}
-                    onChange={this.onChange}
-                  />
-                </div>
-
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Status'
-                    name='status'
-                    className='form-control'
-                    value={this.state.status}
-                    onChange={this.onChange}
-                  />
-                </div>
-
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Source code'
-                    name='sourcecode'
-                    className='form-control'
-                    value={this.state.sourcecode}
-                    onChange={this.onChange}
-                  />
-                </div>
-
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    placeholder='Download link'
-                    name='download'
-                    className='form-control'
-                    value={this.state.download}
-                    onChange={this.onChange}
-                  />
-                </div>
-
+            <form noValidate onSubmit={this.onSubmit}>
+              <div className='form-group'>
                 <input
-                  type="submit"
-                  className="btn btn-outline-warning btn-block mt-4"
+                  type='text'
+                  placeholder='Title of the Project'
+                  name='title'
+                  className='form-control'
+                  value={this.state.title}
+                  onChange={this.onChange}
                 />
-              </form>
-            </div>
+              </div>
+
+              <div className='form-group'>
+                <input
+                  type='text'
+                  placeholder='Author'
+                  name='author'
+                  className='form-control'
+                  value={this.state.author}
+                  onChange={this.onChange}
+                />
+              </div>
+
+              <div className='form-group'>
+                <input
+                  type='text'
+                  placeholder='Describe this project'
+                  name='description'
+                  className='form-control'
+                  value={this.state.description}
+                  onChange={this.onChange}
+                />
+              </div>
+
+              <div className='form-group'>
+                <input
+                  type='text'
+                  placeholder='Programming language'
+                  name='language'
+                  className='form-control'
+                  value={this.state.language}
+                  onChange={this.onChange}
+                />
+              </div>
+
+              <div className='form-group'>
+                <input
+                  type='text'
+                  placeholder='Date'
+                  name='published_date'
+                  className='form-control'
+                  value={this.state.published_date}
+                  onChange={this.onChange}
+                />
+              </div>
+
+              <div className='form-group'>
+                <input
+                  type='text'
+                  placeholder='Status'
+                  name='status'
+                  className='form-control'
+                  value={this.state.status}
+                  onChange={this.onChange}
+                />
+              </div>
+
+              <div className='form-group'>
+                <input
+                  type='text'
+                  placeholder='Source code'
+                  name='sourcecode'
+                  className='form-control'
+                  value={this.state.sourcecode}
+                  onChange={this.onChange}
+                />
+              </div>
+
+              <div className='form-group'>
+                <input
+                  type='text'
+                  placeholder='Download link'
+                  name='download'
+                  className='form-control'
+                  value={this.state.download}
+                  onChange={this.onChange}
+                />
+              </div>
+
+              <input
+                type="submit"
+                className="btn btn-outline-warning btn-block mt-4"
+              />
+            </form>
           </div>
         </div>
       </div>
