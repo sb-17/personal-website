@@ -37,7 +37,7 @@ class NavigationBar extends Component {
     axios.post('/api/auth', null, header).then(response => {
       if (response.data.data.user) {
         reactLocalStorage.remove('token');
-        this.props.history.push('/');
+        window.location.reload(false);
       }
     });
   }
