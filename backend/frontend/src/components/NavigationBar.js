@@ -37,6 +37,7 @@ class NavigationBar extends Component {
     axios.post('/api/auth', null, header).then(response => {
       if (response.data.data.user) {
         reactLocalStorage.remove('token');
+        this.props.history.push('/');
       }
     });
   }
@@ -56,7 +57,7 @@ class NavigationBar extends Component {
             {
               this.state.loggedIn &&
               <Nav className="ml-auto">
-                <Nav.Link onClick={this.logout()}>Log out</Nav.Link>
+                <Nav.Link onClick={this.logout.bind()}>Log out</Nav.Link>
               </Nav>
             }
           </Navbar.Collapse>
