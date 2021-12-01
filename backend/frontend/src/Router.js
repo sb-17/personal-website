@@ -21,7 +21,7 @@ function Router() {
       <Route path='/projects' component={ShowProjectList} />
       <Route path='/project/:id' component={ShowProjectDetails} />
       <Route path='/edit/:id' component={UpdateProject} />
-      <Route path='/project/create' component={CreateProject} />
+      <Route path='/create' component={CreateProject} />
       <Route path='/login' component={Login} />
       <Route path='/about' component={About} />
       <Footer />

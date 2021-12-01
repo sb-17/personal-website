@@ -42,6 +42,8 @@ class UpdateProject extends Component {
             console.log("Error from UpdateProject");
           });
       }
+    }).catch(err => {
+      this.props.history.push('/');
     });
   };
 
@@ -216,8 +218,8 @@ class UpdateProject extends Component {
 
               <button onClick={this.deleteProject} className="btn btn-outline-danger btn-lg btn-block">Delete Project</button>
             </form>
-            <br/>
-            <br/>
+            <br />
+            <br />
           </div>
 
         </div>

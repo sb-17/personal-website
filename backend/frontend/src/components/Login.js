@@ -34,7 +34,7 @@ class Login extends Component {
     }
 
     render() {
-        document.title = "Admin Panel";
+        document.title = "Login";
         return (
             <div className="CreateProject">
                 <div className="container">
