@@ -6,7 +6,7 @@ import Home from './components/Home';
 import ShowProjectList from './components/ShowProjectList';
 import ShowProjectDetails from './components/ShowProjectDetails';
 import UpdateProject from './components/UpdateProject';
-import AdminPanel from './components/AdminPanel';
+import Login from './components/Login';
 import About from './components/About';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
@@ -20,7 +20,7 @@ function Router() {
       <Route path='/projects' component={ShowProjectList} />
       <Route path='/project/:id' component={ShowProjectDetails} />
       <Route path='/edit/:id' component={UpdateProject} />
-      <Route path='/adminpanel' component={AdminPanel} />
+      <Route path='/login' component={Login} />
       <Route path='/about' component={About} />
       <Footer />
     </BrowserRouter>

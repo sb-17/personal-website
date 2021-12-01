@@ -5,7 +5,7 @@ import CreateProject from './CreateProject';
 import { reactLocalStorage } from 'reactjs-localstorage';
 require('dotenv').config();
 
-class AdminPanel extends Component {
+class Login extends Component {
     constructor() {
         super();
         this.state = {
@@ -86,4 +86,4 @@ class AdminPanel extends Component {
     }
 };
 
-export default AdminPanel;
+export default Login;
