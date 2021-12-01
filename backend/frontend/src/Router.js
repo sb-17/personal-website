@@ -10,6 +10,7 @@ import Login from './components/Login';
 import About from './components/About';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
+import CreateProject from './components/CreateProject';
 
 function Router() {
 
@@ -20,6 +21,7 @@ function Router() {
       <Route path='/projects' component={ShowProjectList} />
       <Route path='/project/:id' component={ShowProjectDetails} />
       <Route path='/edit/:id' component={UpdateProject} />
+      <Route path='/project/create' component={CreateProject} />
       <Route path='/login' component={Login} />
       <Route path='/about' component={About} />
       <Footer />

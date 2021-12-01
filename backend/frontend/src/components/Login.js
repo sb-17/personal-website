@@ -1,9 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import '../App.css';
-import CreateProject from './CreateProject';
 import { reactLocalStorage } from 'reactjs-localstorage';
-require('dotenv').config();
 
 class Login extends Component {
     constructor() {
@@ -29,6 +27,7 @@ class Login extends Component {
 
         axios.post('/api/auth/login', data).then(response => {
             reactLocalStorage.set('token', response.data.token);
+            this.props.history.push('/');
         });
 
         this.setState({ isSubmitted: true });
@@ -42,7 +41,7 @@ class Login extends Component {
                     <div className="row">
                         <div className="col-md-8 m-auto">
                             <br />
-                            <h1 className="display-4 text-center">Admin Panel</h1>
+                            <h1 className="display-4 text-center">Login</h1>
                             <hr />
 
                             <form noValidate onSubmit={this.onSubmit}>
@@ -78,9 +77,6 @@ class Login extends Component {
                 </div>
                 <br />
                 <br />
-                {
-                    this.state.username === process.env.REACT_APP_ADMINNICK && this.state.password === process.env.REACT_APP_ADMINPASSWORD && this.state.isSubmitted && <CreateProject />
-                }
             </div>
         );
     }
