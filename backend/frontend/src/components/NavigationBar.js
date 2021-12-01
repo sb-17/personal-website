@@ -56,7 +56,7 @@ class NavigationBar extends Component {
             {
               this.state.loggedIn &&
               <Nav className="ml-auto">
-                <Nav.Link onClick={logout()}>Log out</Nav.Link>
+                <Nav.Link onClick={this.logout()}>Log out</Nav.Link>
               </Nav>
             }
           </Navbar.Collapse>
