@@ -40,16 +40,18 @@ class ShowProjectList extends Component {
     }
 
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <br />
-            <h2 className="display-4 text-center">Project List</h2>
-            <hr />
+      <div className="ShowProjectList">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <br />
+              <h2 className="display-4 text-center">Project List</h2>
+              <hr />
+            </div>
           </div>
-        </div>
-        <div className="list">
-          {projectList}
+          <div className="list">
+            {projectList}
+          </div>
         </div>
       </div>
     );
