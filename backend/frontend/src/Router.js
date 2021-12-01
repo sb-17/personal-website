@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 
 import Home from './components/Home';
@@ -24,7 +24,7 @@ function Router() {
       <Route path='/create' component={CreateProject} />
       <Route path='/login' component={Login} />
       <Route path='/about' component={About} />
-      <Redirect from="*" to="/" />
+      <Route path='*' component={Home} />
       <Footer />
     </BrowserRouter>
   );
