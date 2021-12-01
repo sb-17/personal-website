@@ -53,6 +53,8 @@ class NavigationBar extends Component {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/projects">Projects</Nav.Link>
               <Nav.Link href="/about">About me</Nav.Link>
+            </Nav>
+            <Nav className="ml-auto">
               {
                 this.state.loggedIn &&
                 <Nav.Link onClick={this.logout.bind()}>Log out</Nav.Link>
@@ -61,9 +63,6 @@ class NavigationBar extends Component {
                 !this.state.loggedIn &&
                 <Nav.Link href="/login">Log in</Nav.Link>
               }
-            </Nav>
-            <Nav className="ml-auto">
-              <Nav.Link>Logged in as: {}</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
