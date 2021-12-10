@@ -53,6 +53,8 @@ class NavigationBar extends Component {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/projects">Projects</Nav.Link>
               <Nav.Link href="/about">About me</Nav.Link>
+              <Nav.Link href="https://github.com/sb-17">Github</Nav.Link>
+              <Nav.Link href="https://twitter.com/lostin_games">Twitter</Nav.Link>
             </Nav>
             <Nav className="ml-auto">
               {
