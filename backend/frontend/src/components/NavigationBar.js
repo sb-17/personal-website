@@ -59,6 +59,14 @@ class NavigationBar extends Component {
                 this.state.loggedIn &&
                 <Nav.Link onClick={this.logout.bind()}>Log out</Nav.Link>
               }
+              {
+                !this.state.loggedIn &&
+                <Nav.Link href="/login">Log in</Nav.Link>
+              }
+              {
+                !this.state.loggedIn &&
+                <Nav.Link href="/register">Register</Nav.Link>
+              }
             </Nav>
           </Navbar.Collapse>
         </Container>
