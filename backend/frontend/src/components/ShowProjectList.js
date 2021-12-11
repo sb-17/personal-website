@@ -80,6 +80,7 @@ class ShowProjectList extends Component {
                 <button onClick={this.createProject.bind()} className="btn btn-outline-info btn-lg btn-block">Create Project</button>
               }
             </div>
+            <br />
           </div>
           <div className="list">
             {projectList}
