@@ -38,6 +38,20 @@ class ShowProjectList extends Component {
       })
   };
 
+  createProject = e => {
+    const header = {
+      headers: {
+        'Authorization': reactLocalStorage.get('token')
+      }
+    }
+
+    axios.post('/api/auth', null, header).then(response => {
+      if (response.data.data.user.isAdmin === "true") {
+        this.props.history.push('/create');
+      }
+    });
+  };
+
   render() {
     const projects = this.state.projects;
     document.title = "Projects";

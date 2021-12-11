@@ -218,7 +218,7 @@ class UpdateProject extends Component {
 
             <button type="submit" className="btn btn-outline-info btn-lg btn-block">Update Project</button>
 
-            <button onClick={this.deleteProject} className="btn btn-outline-danger btn-lg btn-block">Delete Project</button>
+            <button onClick={this.deleteProject.bind()} className="btn btn-outline-danger btn-lg btn-block">Delete Project</button>
           </form>
           <br />
           <br />

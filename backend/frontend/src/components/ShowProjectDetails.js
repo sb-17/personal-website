@@ -47,7 +47,7 @@ class ShowProjectDetails extends Component {
     }
 
     axios.post('/api/auth', null, header).then(response => {
-      if (response.data.data.user) {
+      if (response.data.data.user.isAdmin === "true") {
         this.props.history.push('/edit/' + this.props.match.params.id);
       }
     });
