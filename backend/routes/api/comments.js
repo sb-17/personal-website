@@ -1,0 +1,48 @@
+const express = require('express');
+const router = express.Router();
+const app = express();
+
+const Comment = require('../../models/Comment');
+
+const auth = require('./auth');
+
+app.use('/auth', auth.router);
+
+router.get('/:id', (req, res) => {
+    Comment.find({ "project": req.params.id })
+        .then(comments => res.json(comments))
+        .catch(err => res.status(404).json({ noprojectsfound: 'No Comments found' }));
+});
+
+router.post('/:id', (req, res) => {
+    const token = req.headers.authorization;
+    const authorization = auth.auth(token);
+
+    if (authorization) {
+        const data = {
+            description: req.body.description,
+            author: req.body.author,
+            project: req.params.id,
+            published_date: req.body.published_date
+        }
+
+        Comment.create(data)
+            .then(comment => res.json({ msg: 'Comment added successfully' }))
+            .catch(err => res.status(400).json({ error: 'Unable to add this comment' }));
+    }
+});
+
+router.delete('/:id', (req, res) => {
+    const token = req.headers.authorization;
+    const authorization = auth.auth(token);
+
+    const currentComment = Comment.findOne({ "project": req.params.id }, req.body);
+
+    if (authorization.username === currentComment.author) {
+        Comment.findOneAndRemove({ "project": req.params.id }, req.body)
+            .then(comment => res.json({ mgs: 'Comment deleted successfully' }))
+            .catch(err => res.status(404).json({ error: 'No such a comment' }));
+    }
+});
+
+module.exports = router;

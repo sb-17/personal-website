@@ -4,17 +4,24 @@ import '../App.css';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import { reactLocalStorage } from 'reactjs-localstorage';
+import CommentContainer from './CommentContainer';
+import moment from 'moment';
 
 class ShowProjectDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
       project: {},
-      isAdmin: false
+      comments: [],
+      isAdmin: false,
+      description: '',
+      loggedIn: false
     };
   }
 
   componentDidMount() {
+    this.setState({ comments: [] });
+
     const header = {
       headers: {
         'Authorization': reactLocalStorage.get('token')
@@ -25,18 +32,26 @@ class ShowProjectDetails extends Component {
       if (response.data.data.user.isAdmin === "true") {
         this.setState({ isAdmin: true });
       }
+      if (response.data.data.user) {
+        this.setState({ loggedIn: true });
+      }
     });
 
-    axios
-      .get('/api/projects/' + this.props.match.params.id)
-      .then(res => {
-        this.setState({
-          project: res.data
-        })
+    axios.get('/api/projects/' + this.props.match.params.id).then(res => {
+      this.setState({
+        project: res.data
       })
-      .catch(err => {
-        console.log("Error from ShowProjectDetails");
+    }).catch(err => {
+      console.log("Error from ShowProjectDetails");
+    });
+
+    axios.get('/api/comments/' + this.props.match.params.id).then(res => {
+      this.setState({
+        comments: res.data
       })
+    }).catch(err => {
+      console.log('Error from Comments');
+    })
   };
 
   editPage = e => {
@@ -49,6 +64,42 @@ class ShowProjectDetails extends Component {
     axios.post('/api/auth', null, header).then(response => {
       if (response.data.data.user.isAdmin === "true") {
         this.props.history.push('/edit/' + this.props.match.params.id);
+      }
+    });
+  }
+
+  onChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  createComment = e => {
+    e.preventDefault();
+
+    const header = {
+      headers: {
+        'Authorization': reactLocalStorage.get('token')
+      }
+    }
+
+    axios.post('/api/auth', null, header).then(response => {
+      if (response.data.data.user) {
+        const data = {
+          author: response.data.data.user.username,
+          description: this.state.description,
+          published_date: moment().format("DD/MM/YYYY")
+        };
+
+        axios
+          .post('/api/comments/' + this.props.match.params.id, data, header)
+          .then(res => {
+            this.setState({
+              description: '',
+            });
+            window.location.reload(false);
+          })
+          .catch(err => {
+            console.log("Error in Create Comment!");
+          })
       }
     });
   }
@@ -112,6 +163,19 @@ class ShowProjectDetails extends Component {
         </tbody>
       </Table>
 
+    const comments = this.state.comments;
+    let commentList;
+
+    if (!comments) {
+      commentList = "there is no project record!";
+    } else {
+      commentList = comments.map((comment, k) =>
+        <div className="container">
+          <CommentContainer comment={comment} key={k} />
+        </div>
+      );
+    }
+
     return (
       <div className="container details-container">
         <div className="row">
@@ -134,7 +198,39 @@ class ShowProjectDetails extends Component {
             </div>
           }
         </div>
-      </div>
+        <br />
+        <h2 className="text-center">Comments</h2>
+        <hr />
+        {
+          this.state.loggedIn &&
+          < div >
+            <form noValidate onSubmit={this.createComment.bind()}>
+              <div className='form-group'>
+                <input
+                  type='text'
+                  placeholder='Comment'
+                  name='description'
+                  className='form-control'
+                  value={this.state.description}
+                  onChange={this.onChange}
+                />
+              </div>
+
+              <input
+                type="submit"
+                className="btn btn-outline-warning btn-block mt-3"
+              />
+            </form>
+            <br />
+            <br />
+          </div>
+        }
+        <div className="comment-list">
+          {commentList}
+        </div>
+        <br />
+        <br />
+      </div >
     );
   }
 }

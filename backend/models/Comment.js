@@ -10,8 +10,13 @@ const CommentSchema = new mongoose.Schema({
     required: true
   },
   published_date: {
-    type: String
+    type: String,
+    required: true
+  },
+  project: {
+    type: String,
+    required: true
   }
 });
 
-module.exports = Comment = mongoose.model('project', CommentSchema);
+module.exports = Comment = mongoose.model('comment', CommentSchema);
