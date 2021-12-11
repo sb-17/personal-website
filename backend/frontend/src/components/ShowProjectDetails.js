@@ -10,7 +10,7 @@ class ShowProjectDetails extends Component {
     super(props);
     this.state = {
       project: {},
-      loggedIn: false
+      isAdmin: false
     };
   }
 
@@ -22,8 +22,8 @@ class ShowProjectDetails extends Component {
     }
 
     axios.post('/api/auth', null, header).then(response => {
-      if (response.data.data.user) {
-        this.setState({ loggedIn: true });
+      if (response.data.data.user.isAdmin === "true") {
+        this.setState({ isAdmin: true });
       }
     });
 
@@ -124,7 +124,7 @@ class ShowProjectDetails extends Component {
         <div>
           {ProjectItem}
           {
-            this.state.loggedIn &&
+            this.state.isAdmin &&
             <div>
               <br />
               <br />

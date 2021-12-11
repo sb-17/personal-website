@@ -7,11 +7,24 @@ class ShowProjectList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: []
+      projects: [],
+      isAdmin: false
     };
   }
 
   componentDidMount() {
+    const header = {
+      headers: {
+        'Authorization': reactLocalStorage.get('token')
+      }
+    }
+
+    axios.post('/api/auth', null, header).then(response => {
+      if (response.data.data.user.isAdmin === "true") {
+        this.setState({ isAdmin: true });
+      }
+    });
+
     axios
       .get('/api/projects')
       .then(res => {
@@ -47,6 +60,10 @@ class ShowProjectList extends Component {
               <br />
               <h2 className="display-4 text-center">Project List</h2>
               <hr />
+              {
+                this.state.isAdmin &&
+                <button onClick={this.createProject.bind()} className="btn btn-outline-info btn-lg btn-block">Create Project</button>
+              }
             </div>
           </div>
           <div className="list">
