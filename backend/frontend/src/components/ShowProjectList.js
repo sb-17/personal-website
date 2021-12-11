@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
 import ProjectContainer from './ProjectContainer';
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 class ShowProjectList extends Component {
   constructor(props) {
