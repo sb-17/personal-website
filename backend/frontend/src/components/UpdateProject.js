@@ -24,7 +24,7 @@ class UpdateProject extends Component {
     }
 
     axios.post('/api/auth', null, header).then(response => {
-      if (response.data.data.user) {
+      if (response.data.data.user.isAdmin === "true") {
         axios
           .get('/api/projects/' + this.props.match.params.id)
           .then(res => {
@@ -41,6 +41,9 @@ class UpdateProject extends Component {
           .catch(err => {
             console.log("Error from UpdateProject");
           });
+      }
+      else {
+        this.props.history.push('/');
       }
     }).catch(err => {
       this.props.history.push('/');
@@ -59,7 +62,7 @@ class UpdateProject extends Component {
     }
 
     axios.post('/api/auth', null, header).then(response => {
-      if (response.data.data.user) {
+      if (response.data.data.user.isAdmin === "true") {
         const data = {
           title: this.state.title,
           author: this.state.author,

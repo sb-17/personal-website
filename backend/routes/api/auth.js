@@ -24,7 +24,8 @@ router.post('/login', async (req, res) => {
         return;
     }
 
-    const response = await User.find();
+    const response = await User.find({ "username": username });
+
     if (!response.length > 0) return res.status(401).send('Invalid username or password');
 
     const userdata = JSON.parse(JSON.stringify(response[0]));
@@ -34,7 +35,7 @@ router.post('/login', async (req, res) => {
 
     if (success) {
         const token = jwt.sign(userdata, process.env.JWT_SECRET, { algorithm: 'HS256', expiresIn: '1h' });
-        res.status(200).send({ token: token });
+        res.status(200).send({ token: token, });
     }
     else {
         res.status(401).send('Invalid username or password');
@@ -49,25 +50,32 @@ router.post('/', (req, res) => {
     res.status(200).send({ message: 'Authentication successful!', data: { user: authdata } });
 });
 
-// router.post('/register', async (req, res) => {
-//     const username = req.body.username;
-//     const password = req.body.password;
+router.post('/register', async (req, res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+    const isAdmin = false;
 
-//     if (!username || !password) {
-//         res.status(400).send({ error: { code: 'ERRFIELDEMPTY', message: `Please provide a valid 'req.body.user' and 'req.body.pass'` } });
-//         return;
-//     }
+    const exists = await User.find({ "username": username });
+    if (exists.length !== 0) {
+        res.status(400).send({ message: 'Username already in use' });
+        return;
+    }
 
-//     const salt = await bcrypt.genSalt();
-//     const hashed = await bcrypt.hash(password, salt);
-//     if (!hashed) return res.status(500).send({ error: { code: 'ERRPASSHASHFAILED', message: 'An error occurred while hashing the password' } });
+    if (!username || !password) {
+        res.status(400).send({ error: { code: 'ERRFIELDEMPTY', message: `Please provide a valid 'req.body.user' and 'req.body.pass'` } });
+        return;
+    }
 
-//     const userdata = { username, password: hashed };
+    const salt = await bcrypt.genSalt();
+    const hashed = await bcrypt.hash(password, salt);
+    if (!hashed) return res.status(500).send({ error: { code: 'ERRPASSHASHFAILED', message: 'An error occurred while hashing the password' } });
 
-//     const id = User.create(userdata)[0];
-//     userdata.id = id;
-//     res.status(200).send({ message: 'Registration successful', data: { user: userdata } });
-// });
+    const userdata = { username, password: hashed, isAdmin };
+
+    const id = User.create(userdata)[0];
+    userdata.id = id;
+    res.status(200).send({ message: 'Registration successful', data: { user: userdata } });
+});
 
 function auth(token) {
     try {

@@ -25,7 +25,11 @@ class CreateProject extends Component {
       }
     }
 
-    axios.post('/api/auth', null, header).then(response => { }).catch(err => {
+    axios.post('/api/auth', null, header).then(response => {
+      if (response.data.data.user.isAdmin === "false") {
+        this.props.history.push('/');
+      }
+    }).catch(err => {
       this.props.history.push('/');
     });
   }
@@ -44,7 +48,7 @@ class CreateProject extends Component {
     }
 
     axios.post('/api/auth', null, header).then(response => {
-      if (response.data.data.user) {
+      if (response.data.data.user.isAdmin === "true") {
         const data = {
           title: this.state.title,
           author: this.state.author,

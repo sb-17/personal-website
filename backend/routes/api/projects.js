@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
   const token = req.headers.authorization;
   const authorization = auth.auth(token);
 
-  if (authorization) {
+  if (authorization.isAdmin === "true") {
     Project.create(req.body)
       .then(project => res.json({ msg: 'Project added successfully' }))
       .catch(err => res.status(400).json({ error: 'Unable to add this project' }));
@@ -35,7 +35,7 @@ router.put('/:id', (req, res) => {
   const token = req.headers.authorization;
   const authorization = auth.auth(token);
 
-  if (authorization) {
+  if (authorization.isAdmin === "true") {
     Project.findByIdAndUpdate(req.params.id, req.body)
       .then(project => res.json({ msg: 'Updated successfully' }))
       .catch(err =>
@@ -48,7 +48,7 @@ router.delete('/:id', (req, res) => {
   const token = req.headers.authorization;
   const authorization = auth.auth(token);
 
-  if (authorization) {
+  if (authorization.isAdmin === "true") {
     Project.findByIdAndRemove(req.params.id, req.body)
       .then(project => res.json({ mgs: 'Project entry deleted successfully' }))
       .catch(err => res.status(404).json({ error: 'No such a project' }));

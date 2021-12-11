@@ -13,6 +13,22 @@ class Login extends Component {
         };
     }
 
+    componentDidMount() {
+        const header = {
+          headers: {
+            'Authorization': reactLocalStorage.get('token')
+          }
+        }
+    
+        axios.post('/api/auth', null, header).then(response => {
+          if (response.data.data.user) {
+            this.props.history.push('/');
+          }
+        }).catch(err => {
+          this.props.history.push('/');
+        });
+    }
+
     onChange = e => {
         this.setState({ [e.target.name]: e.target.value });
     };

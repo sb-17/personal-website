@@ -11,6 +11,7 @@ import About from './components/About';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
 import CreateProject from './components/CreateProject';
+import Register from './components/Register';
 
 function Router() {
 
@@ -24,6 +25,7 @@ function Router() {
         <Route exact path='/edit/:id' component={UpdateProject} />
         <Route exact path='/create' component={CreateProject} />
         <Route exact path='/login' component={Login} />
+        <Route exact path='/register' component={Register} />
         <Route exact path='/about' component={About} />
       </div>
       <Footer />

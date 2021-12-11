@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import '../App.css';
-import { reactLocalStorage } from 'reactjs-localstorage';
 
 class Register extends Component {
     constructor() {
@@ -15,6 +14,22 @@ class Register extends Component {
         };
     }
 
+    componentDidMount() {
+        const header = {
+          headers: {
+            'Authorization': reactLocalStorage.get('token')
+          }
+        }
+    
+        axios.post('/api/auth', null, header).then(response => {
+          if (response.data.data.user) {
+            this.props.history.push('/');
+          }
+        }).catch(err => {
+          this.props.history.push('/');
+        });
+    }
+
     onChange = e => {
         this.setState({ [e.target.name]: e.target.value });
     };
@@ -25,13 +40,11 @@ class Register extends Component {
         if (this.state.password === this.state.confirmPassword) {
             const data = {
                 username: this.state.username,
-                password: this.state.password,
-                confirmPassword: this.state.confirmPassword
+                password: this.state.password
             };
     
-            axios.post('/api/auth/login', data).then(response => {
-                reactLocalStorage.set('token', response.data.token);
-                this.props.history.push('/');
+            axios.post('/api/auth/register', data).then(response => {
+                this.props.history.push('/login');
             });
     
             this.setState({ isSubmitted: true });
@@ -86,7 +99,7 @@ class Register extends Component {
                             </div>
 
                             <div className='form-group'>
-                                <p>{this.state.errorMessage}</p>
+                                <center><p>{this.state.errorMessage}</p></center>
                             </div>
 
                             <input
