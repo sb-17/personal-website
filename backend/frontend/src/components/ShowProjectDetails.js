@@ -171,7 +171,7 @@ class ShowProjectDetails extends Component {
     } else {
       commentList = comments.map((comment, k) =>
         <div className="container">
-          <CommentContainer comment={comment} key={k} />
+          <CommentContainer comment={comment} key={k} project={this.props.match.params.id} />
         </div>
       );
     }
