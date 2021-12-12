@@ -16,19 +16,17 @@ const CommentContainer = (props) => {
 
         axios.post('/api/auth', null, header).then(response => {
             if (response.data.data.user.username === comment.author) {
-                const header = {
+                axios.delete('/api/comments/' + comment.project, {
                     headers: {
                         'Authorization': reactLocalStorage.get('token')
                     },
-                    body: {
+                    data: {
                         project: comment.project,
                         author: comment.author,
                         description: comment.description,
                         published_date: comment.published_date
                     }
-                }
-
-                axios.delete('/api/comments/' + comment.project, header).then(res => {
+                }).then(res => {
                     window.location.reload(false);
                 }).catch(err => {
                     console.log("Error in Delete Comment!");
