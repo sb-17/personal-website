@@ -36,7 +36,7 @@ router.delete('/:id', async (req, res) => {
     const token = req.headers.authorization;
     const authorization = auth.auth(token);
 
-    const currentComment = await Comment.findOne({ "project": req.params.id }, req.body);
+    const currentComment = await Comment.findOne({ "project": req.params.id, "author": req.body.author, "published_date": req.body.published_date, "description": req.body.description });
 
     if (authorization.username === currentComment.author) {
         Comment.findOneAndRemove({ "project": req.params.id }, req.body)
