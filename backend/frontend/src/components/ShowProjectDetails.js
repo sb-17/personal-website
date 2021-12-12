@@ -199,6 +199,7 @@ class ShowProjectDetails extends Component {
           }
         </div>
         <br />
+        <br />
         <h2 className="text-center">Comments</h2>
         <hr />
         {
