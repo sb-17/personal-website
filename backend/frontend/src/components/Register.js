@@ -89,7 +89,7 @@ class Register extends Component {
                             <div className='form-group'>
                                 <input
                                     type='password'
-                                    placeholder='Confirm 3pssword'
+                                    placeholder='Confirm password'
                                     name='confirmPassword'
                                     className='form-control'
                                     value={this.state.confirmPassword}
