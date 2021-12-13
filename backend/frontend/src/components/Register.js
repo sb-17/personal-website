@@ -26,9 +26,7 @@ class Register extends Component {
             if (response.data.data.user) {
                 this.props.history.push('/');
             }
-        }).catch(err => {
-            this.props.history.push('/');
-        });
+        }).catch(err => { });
     }
 
     onChange = e => {
