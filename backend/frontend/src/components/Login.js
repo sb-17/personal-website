@@ -8,8 +8,7 @@ class Login extends Component {
         super();
         this.state = {
             username: '',
-            password: '',
-            isSubmitted: false
+            password: ''
         };
     }
 
@@ -43,8 +42,6 @@ class Login extends Component {
             reactLocalStorage.set('token', response.data.token);
             this.props.history.push('/');
         });
-
-        this.setState({ isSubmitted: true });
     }
 
     render() {
