@@ -40,7 +40,7 @@ class Login extends Component {
 
         axios.post('/api/auth/login', data).then(response => {
             reactLocalStorage.set('token', response.data.token);
-            this.props.history.push('/');
+            window.location.reload(false);
         });
     }
 
