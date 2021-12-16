@@ -15,7 +15,7 @@ const CommentContainer = (props) => {
         }
 
         axios.post('/api/auth', null, header).then(response => {
-            if (response.data.data.user.username === comment.author) {
+            if (response.data.data.user.username === comment.author || response.data.data.user.isAdmin === "true") {
                 axios.delete('/api/comments/' + comment.project, {
                     headers: {
                         'Authorization': reactLocalStorage.get('token')

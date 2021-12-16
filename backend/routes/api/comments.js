@@ -40,7 +40,7 @@ router.delete('/:id', async (req, res) => {
     const commentdata = JSON.parse(JSON.stringify(currentComment[0]));
     console.log(commentdata.description);
 
-    if (authorization.username === commentdata.author) {
+    if (authorization.username === commentdata.author || authorization.isAdmin === "true") {
         Comment.findOneAndRemove({ "project": req.params.id, "author": req.body.author, "published_date": req.body.published_date, "description": req.body.description })
             .then(comment => res.json({ mgs: 'Comment deleted successfully' }))
             .catch(err => res.status(404).json({ error: 'No such a comment' }));
