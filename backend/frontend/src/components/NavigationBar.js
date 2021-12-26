@@ -4,6 +4,8 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import { reactLocalStorage } from 'reactjs-localstorage';
 import axios from 'axios';
+import { AiOutlineGithub, AiOutlineTwitter } from 'react-icons/ai';
+import { BsDiscord } from 'react-icons/bs';
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -53,9 +55,9 @@ class NavigationBar extends Component {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/projects">Projects</Nav.Link>
               <Nav.Link href="/about">About me</Nav.Link>
-              <Nav.Link href="https://github.com/sb-17">Github</Nav.Link>
-              <Nav.Link href="https://twitter.com/lostin_games">Twitter</Nav.Link>
-              <Nav.Link href="https://discord.gg/9ERdXUBwEZ">Discord</Nav.Link>
+              <Nav.Link href="https://github.com/sb-17" className="navlinkicon"><AiOutlineGithub size={20} className="icon" />Github</Nav.Link>
+              <Nav.Link href="https://twitter.com/lostin_games" className="navlinkicon"><AiOutlineTwitter size={20} className="icon" />Twitter</Nav.Link>
+              <Nav.Link href="https://discord.gg/9ERdXUBwEZ" className="navlinkicon"><BsDiscord size={20} className="icon" />Discord</Nav.Link>
             </Nav>
             <Nav className="ml-auto">
               {
