@@ -3,6 +3,8 @@ import '../App.css';
 import axios from 'axios';
 import ProjectContainer from './ProjectContainer';
 import { reactLocalStorage } from 'reactjs-localstorage';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 class ShowProjectList extends Component {
   constructor(props) {
@@ -14,6 +16,10 @@ class ShowProjectList extends Component {
   }
 
   componentDidMount() {
+    if (reactLocalStorage.get('sort') == null) {
+      reactLocalStorage.set('sort', "Title");
+    }
+
     const header = {
       headers: {
         'Authorization': reactLocalStorage.get('token')
@@ -26,16 +32,24 @@ class ShowProjectList extends Component {
       }
     });
 
-    axios
-      .get('/api/projects')
-      .then(res => {
+    this.loadProjects();
+  };
+
+  loadProjects = e => {
+    axios.get('/api/projects').then(res => {
+      if (reactLocalStorage.get('sort') == "Title") {
         this.setState({
-          projects: res.data
+          projects: (res.data).sort((a, b) => a.published_date > b.published_date ? 1 : -1)
         })
-      })
-      .catch(err => {
-        console.log('Error from ShowProjectList');
-      })
+      }
+      else if (reactLocalStorage.get('sort') == "Date") {
+        this.setState({
+          projects: (res.data).sort((a, b) => new Date(a.published_date.split('/').reverse()) > new Date(b.published_date.split('/').reverse()) ? -1 : 1)
+        })
+      }
+    }).catch(err => {
+      console.log('Error from ShowProjectList');
+    });
   };
 
   createProject = e => {
@@ -51,6 +65,11 @@ class ShowProjectList extends Component {
       }
     });
   };
+  
+  onSortSelect = e => {
+    reactLocalStorage.set('sort', e);
+    window.location.reload(false);
+  }
 
   render() {
     const projects = this.state.projects;
@@ -79,6 +98,12 @@ class ShowProjectList extends Component {
                 this.state.isAdmin &&
                 <button onClick={this.createProject.bind()} className="btn btn-outline-info btn-lg btn-block">Create Project</button>
               }
+              <center>
+                <DropdownButton onSelect={this.onSortSelect} id="dropdown-basic-button" variant="secondary" title="Sort">
+                  <Dropdown.Item eventKey="Title">Title</Dropdown.Item>
+                  <Dropdown.Item eventKey="Date">Date</Dropdown.Item>
+                </DropdownButton>
+              </center>
             </div>
             <br />
           </div>
