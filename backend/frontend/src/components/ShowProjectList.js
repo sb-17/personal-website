@@ -11,7 +11,8 @@ class ShowProjectList extends Component {
     super(props);
     this.state = {
       projects: [],
-      isAdmin: false
+      isAdmin: false,
+      sort: reactLocalStorage.get('sort')
     };
   }
 
@@ -68,6 +69,7 @@ class ShowProjectList extends Component {
   
   onSortSelect = e => {
     reactLocalStorage.set('sort', e);
+    this.setState({ sort: e });
     window.location.reload(false);
   }
 
@@ -99,7 +101,7 @@ class ShowProjectList extends Component {
                 <button onClick={this.createProject.bind()} className="btn btn-outline-info btn-lg btn-block">Create Project</button>
               }
               <center>
-                <DropdownButton onSelect={this.onSortSelect} id="dropdown-basic-button" variant="secondary" title="Sort">
+                <DropdownButton onSelect={this.onSortSelect} id="dropdown-basic-button" variant="secondary" title={"Sorted by " + this.state.sort}>
                   <Dropdown.Item eventKey="Title">Title</Dropdown.Item>
                   <Dropdown.Item eventKey="Date">Date</Dropdown.Item>
                 </DropdownButton>
