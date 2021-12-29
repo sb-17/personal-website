@@ -103,7 +103,7 @@ class ShowProjectList extends Component {
               <center>
                 <DropdownButton onSelect={this.onSortSelect} id="dropdown-basic-button" variant="secondary" title={"Sorted by " + this.state.sort}>
                   <Dropdown.Item eventKey="Title">Title</Dropdown.Item>
-                  <Dropdown.Item eventKey="Date">Date</Dropdown.Item>
+                  <Dropdown.Item eventKey="Date">Date</Dropdown.Item> 
                 </DropdownButton>
               </center>
             </div>
