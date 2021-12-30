@@ -19,6 +19,7 @@ class ShowProjectList extends Component {
   componentDidMount() {
     if (reactLocalStorage.get('sort') == null) {
       reactLocalStorage.set('sort', "Title");
+      this.setState({ sort: 'Title' });
     }
 
     const header = {
