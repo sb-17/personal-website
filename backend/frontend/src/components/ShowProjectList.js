@@ -41,12 +41,17 @@ class ShowProjectList extends Component {
     axios.get('/api/projects').then(res => {
       if (reactLocalStorage.get('sort') == "Title") {
         this.setState({
-          projects: (res.data).sort((a, b) => a.published_date > b.published_date ? 1 : -1)
+          projects: (res.data).sort((a, b) => a.title > b.title ? 1 : -1)
         })
       }
       else if (reactLocalStorage.get('sort') == "Date") {
         this.setState({
           projects: (res.data).sort((a, b) => new Date(a.published_date.split('/').reverse()) > new Date(b.published_date.split('/').reverse()) ? -1 : 1)
+        })
+      }
+      else if (reactLocalStorage.get('sort') == "Status") {
+        this.setState({
+          projects: (res.data).sort((a, b) => a.status > b.status ? 1 : -1)
         })
       }
     }).catch(err => {
@@ -107,7 +112,8 @@ class ShowProjectList extends Component {
               <center>
                 <DropdownButton onSelect={this.onSortSelect} id="dropdown-basic-button" variant="secondary" title={"Sorted by " + this.state.sort}>
                   <Dropdown.Item eventKey="Title">Title</Dropdown.Item>
-                  <Dropdown.Item eventKey="Date">Date</Dropdown.Item> 
+                  <Dropdown.Item eventKey="Date">Date</Dropdown.Item>
+                  <Dropdown.Item eventKey="Status">Status</Dropdown.Item>
                 </DropdownButton>
               </center>
             </div>
