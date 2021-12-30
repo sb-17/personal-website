@@ -99,7 +99,10 @@ class ShowProjectList extends Component {
               <hr />
               {
                 this.state.isAdmin &&
-                <button onClick={this.createProject.bind()} className="btn btn-outline-info btn-lg btn-block">Create Project</button>
+                <div>
+                  <button onClick={this.createProject.bind()} className="btn btn-outline-info btn-lg btn-block">Create Project</button>
+                  <br />
+                </div>
               }
               <center>
                 <DropdownButton onSelect={this.onSortSelect} id="dropdown-basic-button" variant="secondary" title={"Sorted by " + this.state.sort}>
