@@ -57,6 +57,7 @@ const FilesList = () => {
                   <td>{version}</td>
                   <td>
                     <a
+                      href={""}
                       onClick={() =>
                         downloadFile(_id, file_path, file_mimetype)
                       }
