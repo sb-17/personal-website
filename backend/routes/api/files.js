@@ -24,7 +24,7 @@ const upload = multer({
       fileSize: 100000000 // 100mb
     },
     fileFilter(req, file, cb) {
-      cb(undefined, true); // continue with upload
+      cb(undefined, true);
     }
   });
   
