@@ -10,6 +10,7 @@ dotenv.config();
 const projects = require('./routes/api/projects');
 const auth = require('./routes/api/auth');
 const comments = require('./routes/api/comments');
+const files = require('./routes/api/files');
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/projects', projects);
 app.use('/api/auth', auth.router);
 app.use('/api/comments', comments);
+app.use('/api/files', files);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, '/frontend/build')));

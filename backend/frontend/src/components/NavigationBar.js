@@ -11,7 +11,8 @@ class NavigationBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: false
+      loggedIn: false,
+      isAdmin: false
     };
   }
 
@@ -25,6 +26,9 @@ class NavigationBar extends Component {
     axios.post('/api/auth', null, header).then(response => {
       if (response.data.data.user) {
         this.setState({ loggedIn: true });
+      }
+      if (response.data.data.user.isAdmin) {
+        this.setState({ isAdmin: true });
       }
     });
   };
@@ -58,6 +62,10 @@ class NavigationBar extends Component {
               <Nav.Link href="https://github.com/sb-17" className="navlinkicon"><AiOutlineGithub size={20} className="icon" />Github</Nav.Link>
               <Nav.Link href="https://twitter.com/lostin_games" className="navlinkicon"><AiOutlineTwitter size={20} className="icon" />Twitter</Nav.Link>
               <Nav.Link href="https://discord.gg/9ERdXUBwEZ" className="navlinkicon"><BsDiscord size={20} className="icon" />Discord</Nav.Link>
+              {
+                this.state.isAdmin &&
+                <Nav.Link href="/adminpanel">Admin Panel</Nav.Link>
+              }
             </Nav>
             <Nav className="ml-auto">
               {
