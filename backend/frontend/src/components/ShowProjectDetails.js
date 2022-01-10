@@ -188,18 +188,21 @@ class ShowProjectDetails extends Component {
             {
               project.title == "Space Run" &&
               <center>
+                <br />
                 <img src={spacerunlogo} width={250} height={250} />
               </center>
             }
             {
               project.title == "Square It Out" &&
               <center>
+                <br />
                 <img src={squareitoutlogo} width={250} height={250} />
               </center>
             }
             {
               project.title == "Train Math" &&
               <center>
+                <br />
                 <img src={trainmathlogo} width={250} height={250} />
               </center>
             }
