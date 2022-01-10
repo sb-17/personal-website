@@ -185,7 +185,9 @@ class ShowProjectDetails extends Component {
             <h1 className="display-4 text-center">{project.title}</h1>
             {
               project.title == "Space Run" &&
-              <img src={logo} width={300} height={300}/>
+              <center>
+                <img src={logo} width={300} height={300} />
+              </center>
             }
             <hr />
           </div>
