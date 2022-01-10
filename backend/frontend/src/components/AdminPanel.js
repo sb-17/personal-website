@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
 import { reactLocalStorage } from 'reactjs-localstorage';
-import Button from 'react-bootstrap/Button';
-import FileUpload from './FileUpload';
-import FilesList from './FilesList';
 
 class AdminPanel extends Component {
   constructor(props) {
@@ -44,24 +41,6 @@ class AdminPanel extends Component {
             <br />
             <h1 className="display-4 text-center">Admin Panel</h1>
             <hr />
-            <center><Button variant="secondary" onClick={() => this.setState({ showFileUpload: !this.state.showFileUpload })}>File upload</Button></center>
-            <br />
-            {
-              this.state.showFileUpload &&
-              <div>
-                <FileUpload />
-                <br />
-              </div>
-            }
-            <center><Button variant="secondary" onClick={() => this.setState({ showFilesList: !this.state.showFilesList })}>Files list</Button></center>
-            <br />
-            {
-              this.state.showFilesList &&
-              <div>
-                <FilesList />
-                <br />
-              </div>
-            }
           </div>
         </div>
       </div>

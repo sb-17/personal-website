@@ -6,6 +6,7 @@ import Table from 'react-bootstrap/Table';
 import { reactLocalStorage } from 'reactjs-localstorage';
 import CommentContainer from './CommentContainer';
 import moment from 'moment';
+import logo from './images/spacerunlogo.png';
 
 class ShowProjectDetails extends Component {
   constructor(props) {
@@ -182,6 +183,10 @@ class ShowProjectDetails extends Component {
           <div className="col-md-8 m-auto">
             <br />
             <h1 className="display-4 text-center">{project.title}</h1>
+            {
+              project.title == "Space Run" &&
+              <img src={logo} width={300} height={300}/>
+            }
             <hr />
           </div>
         </div>

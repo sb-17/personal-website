@@ -13,7 +13,6 @@ import Footer from './components/Footer';
 import CreateProject from './components/CreateProject';
 import Register from './components/Register';
 import AdminPanel from './components/AdminPanel';
-import FilePage from './components/FilePage';
 
 function Router() {
 
@@ -30,7 +29,6 @@ function Router() {
         <Route exact path='/register' component={Register} />
         <Route exact path='/about' component={About} />
         <Route exact path='/adminpanel' component={AdminPanel} />
-        <Route exact path='/file/:projectTitle/:version' component={FilePage} />
       </div>
       <Footer />
     </BrowserRouter>
