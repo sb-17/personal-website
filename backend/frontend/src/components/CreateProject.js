@@ -12,7 +12,9 @@ class CreateProject extends Component {
       description: '',
       language: '',
       sourcecode: '',
-      download: '',
+      androidDownload: res.data.androidDownload,
+      iosDownload: res.data.iosDownload,
+      computerDownload: res.data.computerDownload,
       published_date: '',
       status: ''
     };
@@ -55,7 +57,9 @@ class CreateProject extends Component {
           description: this.state.description,
           language: this.state.language,
           sourcecode: this.state.sourcecode,
-          download: this.state.download,
+          androidDownload: this.state.androidDownload,
+          iosDownload: this.state.iosDownload,
+          computerDownload: this.state.computerDownload,
           published_date: this.state.published_date,
           status: this.state.status
         };
@@ -71,7 +75,9 @@ class CreateProject extends Component {
               sourcecode: '',
               published_date: '',
               status: '',
-              download: ''
+              androidDownload: '',
+              iosDownload: '',
+              computerDownload: ''
             });
           })
           .catch(err => {
@@ -172,10 +178,32 @@ class CreateProject extends Component {
               <div className='form-group'>
                 <input
                   type='text'
-                  placeholder='Download link'
-                  name='download'
+                  placeholder='Android download link'
+                  name='androidDownload'
                   className='form-control'
-                  value={this.state.download}
+                  value={this.state.androidDownload}
+                  onChange={this.onChange}
+                />
+              </div>
+
+              <div className='form-group'>
+                <input
+                  type='text'
+                  placeholder='IOS download link'
+                  name='iosDownload'
+                  className='form-control'
+                  value={this.state.iosDownload}
+                  onChange={this.onChange}
+                />
+              </div>
+
+              <div className='form-group'>
+                <input
+                  type='text'
+                  placeholder='Computer download link'
+                  name='computerDownload'
+                  className='form-control'
+                  value={this.state.computerDownload}
                   onChange={this.onChange}
                 />
               </div>

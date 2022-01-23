@@ -18,7 +18,13 @@ const ProjectSchema = new mongoose.Schema({
   sourcecode: {
     type: String
   },
-  download: {
+  androidDownload: {
+    type: String
+  },
+  iosDownload: {
+    type: String
+  },
+  computerDownload: {
     type: String
   },
   published_date: {

@@ -154,12 +154,32 @@ class ShowProjectDetails extends Component {
             </tr>
           }
           {
-            project.download &&
+            project.androidDownload &&
             <tr>
               <th scope="row"></th>
-              <td>Download link</td>
+              <td>Android download</td>
               <td>
-                <Link to={{ pathname: project.download }} target="_blank">{project.download}</Link>
+                <Link to={{ pathname: project.androidDownload }} target="_blank">{project.androidDownload}</Link>
+              </td>
+            </tr>
+          }
+          {
+            project.iosDownload &&
+            <tr>
+              <th scope="row"></th>
+              <td>IOS download</td>
+              <td>
+                <Link to={{ pathname: project.iosDownload }} target="_blank">{project.iosDownload}</Link>
+              </td>
+            </tr>
+          }
+          {
+            project.computerDownload &&
+            <tr>
+              <th scope="row"></th>
+              <td>Computer download</td>
+              <td>
+                <Link to={{ pathname: project.computerDownload }} target="_blank">{project.computerDownload}</Link>
               </td>
             </tr>
           }
