@@ -12,9 +12,9 @@ class CreateProject extends Component {
       description: '',
       language: '',
       sourcecode: '',
-      androidDownload: res.data.androidDownload,
-      iosDownload: res.data.iosDownload,
-      computerDownload: res.data.computerDownload,
+      androidDownload: '',
+      iosDownload: '',
+      computerDownload: '',
       published_date: '',
       status: ''
     };
