@@ -115,7 +115,7 @@ class UpdateProject extends Component {
         axios
           .put('/api/projects/' + this.props.match.params.id, data, header)
           .then(res => {
-            this.props.history.push('/projects/' + this.props.match.params.id);
+            this.props.history.push('/project/' + this.props.match.params.id);
           })
           .catch(err => {
             console.log("Error in UpdateProject!");
